@@ -15,13 +15,13 @@ pipeline {
 		stage('Build'){
 			steps {
 			    echo "Build Stage"
-				bat "${cmd} build -Dbda.targetEnv=BUILD"
+				bat "${cmd} build -Dteva.targetEnv=DEV"
 			}
 		}
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy Stage"
-				bat "${cmd} deploy -DtargetEnv=DEV"
+				bat "${cmd} deploy -Dteva.targetEnv=DEV"
 			}
 		}
 		/* stage('QA') {
