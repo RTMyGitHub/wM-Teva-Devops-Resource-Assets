@@ -4,7 +4,7 @@
 	<property file="project.properties"/>
 
         <property name="workspace.dir" location="."/>
-
+         <property name="output.dir" location="C:/SoftwareAG107"/>
         <!-- remap the VCS structure defined in project.properties to have absolute paths -->
         <property name="isProjectsDir" location="${isPackages}"/>
         <property name="isTestDir" location="${isTests}"/>
@@ -13,7 +13,7 @@
         <property name="rulesProjectsDir" location="${rulesProjects}"/>
         <property name="umProjectsDir" location="${umExport}"/>
 
-        <property name="buildOutputDir" value="${SAG_Home}/target/${projectName}/build"/>
+        <property name="buildOutputDir" value="${output.dir}/target/${projectName}/build"/>
         <property name="repositoryName" value="${projectName}Repo"/>
         <property name="testPackageNamePattern" value="*_Test"/>
         <property name="jenkinsReportDir" value="${workspace.dir}/report"/>
