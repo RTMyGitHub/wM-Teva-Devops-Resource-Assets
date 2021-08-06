@@ -1,6 +1,6 @@
+def target = "Development"
 pipeline {
     agent any 
-    target = 'Development'
     stages {
         stage('Checkout'){
             steps{
