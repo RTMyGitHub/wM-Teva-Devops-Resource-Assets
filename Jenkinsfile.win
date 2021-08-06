@@ -1,8 +1,9 @@
 
 pipeline {
+    environment {
+     target = "Development"
+   }
     agent any 
-
-    target = 'Development'
     stages {
         stage('Checkout'){
             steps{
