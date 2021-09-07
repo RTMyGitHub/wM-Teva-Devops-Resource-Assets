@@ -5,21 +5,21 @@ pipeline {
    }
     agent any 
     stages {
-        stage('Checkout'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'C:/TevaDevopsAssets/wM-Teva-Build-Assets/Inbound']], userRemoteConfigs: [[url: 'https://github.com/RTMyGitHub/webMethodsDevops.git']]])
-            }
-        }
-        stage('Building'){
-            steps {
-                bat "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} -DtargetEnv=${target} build"
-            }
-        }
-        stage('Deploying') {
-            steps {
-		bat "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} -DtargetEnv=${target} deploy"
-            }
-        }
+        // stage('Checkout'){
+        //     steps{
+        //         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'C:/TevaDevopsAssets/wM-Teva-Build-Assets/Inbound']], userRemoteConfigs: [[url: 'https://github.com/RTMyGitHub/webMethodsDevops.git']]])
+        //     }
+        // }
+        // stage('Building'){
+        //     steps {
+        //         bat "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} -DtargetEnv=${target} build"
+        //     }
+        // }
+        // stage('Deploying') {
+        //     steps {
+		// bat "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} -DtargetEnv=${target} deploy"
+        //     }
+        // }
         stage('Test') {    
                 steps {
             bat "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} -DtargetEnv=${target} test"
